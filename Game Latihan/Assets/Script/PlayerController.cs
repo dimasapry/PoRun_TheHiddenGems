@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -27,6 +28,14 @@ public class PlayerController : MonoBehaviour {
 	private bool stopJumping;
 	private bool canDoubleJump;
 
+	public int health;
+	public int numOfHearts;
+
+	public Image[] hearts;
+	public Sprite fullHeart;
+	public Sprite emptyHeart;
+
+
 	private Animator myAnimator;
 
 	public GameManager theGameManager;
@@ -51,6 +60,8 @@ public class PlayerController : MonoBehaviour {
 		stopJumping = true;
 
 		myAnimator = GetComponent<Animator> ();
+
+	
 		
 	}
 	
@@ -59,6 +70,23 @@ public class PlayerController : MonoBehaviour {
 		
 		//grounded = Physics2D.IsTouchingLayers (myCollider, whatIsGround);
 		grounded = Physics2D.OverlapCircle(groundCheck.position,groundCheckRadius,whatIsGround);
+
+		for (int i = 0; i < hearts.Length; i++) {
+
+			if (i < health) {
+				hearts [i].sprite = fullHeart;
+			} else {
+				hearts [i].sprite = emptyHeart;
+			}
+
+
+
+			if (i < numOfHearts) {
+				hearts [i].enabled = true;
+			} else {
+				hearts [i].enabled = false;
+			}
+		}
 
 
 		if (transform.position.x > speedMilestoneCount)
@@ -117,19 +145,45 @@ public class PlayerController : MonoBehaviour {
 			//if (EventSystem.current.IsPointerOverGameObject(Input.touches[0].fingerId)) return;
 	}
 
+
+
 	void OnCollisionEnter2D (Collision2D other){
 			
-		if (other.gameObject.tag == "killbox"){
+		if (other.gameObject.tag == "killbox") {
 			
-			theGameManager.RestartGame();
+			theGameManager.RestartGame ();
 			moveSpeed = moveSpeedStore;
 			speedMilestoneCount = speedMilestoneCountStore;
 			speedMultiplier = speedMultiplierStore;
 			speedIncreaseMilestone = speedIncreaseMilestoneStore;
-
 		}
-	}
 
+	if (other.gameObject.tag == "enemybox"){
+		//health --;
+		health=health-1;
+
+		other.gameObject.SetActive (false);
+
+			if (health <= 0) {
+				theGameManager.RestartGame ();
+				moveSpeed = moveSpeedStore;
+				speedMilestoneCount = speedMilestoneCountStore;
+				speedMultiplier = speedMultiplierStore;
+				speedIncreaseMilestone = speedIncreaseMilestoneStore;
+			}
+				
+	}
+}
+
+	/*public void RunOutOfHealth(){
+		if (health = 0) {
+			theGameManager.RestartGame ();
+			moveSpeed = moveSpeedStore;
+			speedMilestoneCount = speedMilestoneCountStore;
+			speedMultiplier = speedMultiplierStore;
+			speedIncreaseMilestone = speedIncreaseMilestoneStore;
+		}
+	}*/
 
 
 }
