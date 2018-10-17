@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour {
 
 	private ScoreManager theScoreManager;
 
+	public GameObject heartObjectCanvas;
+	public GameObject scoreObjectCanvas;
 	public DeathMenu theDeathScreen;
 	public GameObject pauseButton;
 
@@ -41,7 +43,6 @@ public class GameManager : MonoBehaviour {
 		platformStartPointKota = platformGeneratorKota.position;
 		playerStartPoint = thePlayer.transform.position;
 		platformStartPointSuasanaKota = platformGeneratorSuasanaKota.position;
-	
 		theScoreManager = FindObjectOfType <ScoreManager> ();
 	}
 
@@ -52,6 +53,8 @@ public class GameManager : MonoBehaviour {
 		theScoreManager.scoreIncrease = false;
 		thePlayer.gameObject.SetActive (false);
 		theDeathScreen.gameObject.SetActive (true);
+		heartObjectCanvas.gameObject.SetActive (false);
+		scoreObjectCanvas.gameObject.SetActive (false);
 	}
 
 
@@ -59,6 +62,8 @@ public class GameManager : MonoBehaviour {
 	{
 
 		pauseButton.SetActive (true);
+		heartObjectCanvas.gameObject.SetActive (true);
+		scoreObjectCanvas.gameObject.SetActive (true);
 		theDeathScreen.gameObject.SetActive (false);
 		platformList = FindObjectsOfType <PlatformDestroyer> ();
 		for (int i = 0; i < platformList.Length; i++) {

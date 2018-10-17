@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour {
 	public Transform groundCheck;
 	public float groundCheckRadius;
 	//private Collider2D myCollider;
+	//var Ponpon_die : Animation;
+	public bool enemyHit;
+	public bool Hit;
 
 	public float moveSpeed;
 	private float moveSpeedStore;
@@ -42,6 +45,9 @@ public class PlayerController : MonoBehaviour {
 
 	private Rigidbody2D myRigidBody;
 
+	public bool hit;
+
+
 
 
 	// Use this for initialization
@@ -50,26 +56,24 @@ public class PlayerController : MonoBehaviour {
 		myRigidBody = GetComponent <Rigidbody2D> ();
 		//myCollider = GetComponent<Collider2D> ();
 		jumpTimeCounter = jumpTime;
-
 		speedMilestoneCount = speedIncreaseMilestone;
-
 		moveSpeedStore = moveSpeed;
 		speedMilestoneCountStore = speedMilestoneCount;
 		speedMultiplierStore = speedMultiplier;
 		speedIncreaseMilestoneStore = speedIncreaseMilestone;
 		stopJumping = true;
-
 		myAnimator = GetComponent<Animator> ();
-
-	
-		
+		Hit = false;
 	}
-	
+
+
 	// Update is called once per frame
 	void Update () {
 		
 		//grounded = Physics2D.IsTouchingLayers (myCollider, whatIsGround);
 		grounded = Physics2D.OverlapCircle(groundCheck.position,groundCheckRadius,whatIsGround);
+//		hit = OnCollisionEnter2D;
+
 
 		for (int i = 0; i < hearts.Length; i++) {
 
@@ -139,6 +143,8 @@ public class PlayerController : MonoBehaviour {
 
 		myAnimator.SetFloat ("Speed", myRigidBody.velocity.x);
 		myAnimator.SetBool ("Grounded", grounded);
+		myAnimator.SetBool ("Hit", Hit);
+		//myAnimator.SetBool ("Hit", OnCollisionEnter2D);
 
 		//if (EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject == null) return;
 		//if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began) {
@@ -147,22 +153,34 @@ public class PlayerController : MonoBehaviour {
 
 
 
+
 	void OnCollisionEnter2D (Collision2D other){
-			
+
 		if (other.gameObject.tag == "killbox") {
-			
+			enemyHit=true;
+			Hit = true;
 			theGameManager.RestartGame ();
 			moveSpeed = moveSpeedStore;
 			speedMilestoneCount = speedMilestoneCountStore;
 			speedMultiplier = speedMultiplierStore;
 			speedIncreaseMilestone = speedIncreaseMilestoneStore;
+			//myAnimator.SetTrigger ("Ponpon_jump");
+			//GetComponent<Animator>().SetTrigger("Ponpon_die");
+//			gameObject.animation.Play("Ponpon_die");
 		}
 
 	if (other.gameObject.tag == "enemybox"){
 		//health --;
+			enemyHit=true;
+			Hit = true;
 		health=health-1;
+			//gameObject.animation.Play("Ponpon_die");
+		
+		//GetComponent<Animator>().SetTrigger("Ponpon_die");
+	//	myAnimator.SetTrigger ("Ponpon_die");
 
 		other.gameObject.SetActive (false);
+
 
 			if (health <= 0) {
 				theGameManager.RestartGame ();
@@ -171,9 +189,11 @@ public class PlayerController : MonoBehaviour {
 				speedMultiplier = speedMultiplierStore;
 				speedIncreaseMilestone = speedIncreaseMilestoneStore;
 			}
-				
 	}
+
+
 }
+
 
 	/*public void RunOutOfHealth(){
 		if (health = 0) {
