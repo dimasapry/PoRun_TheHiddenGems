@@ -52,8 +52,8 @@ public class GameManager : MonoBehaviour {
 		theScoreManager.scoreIncrease = false;
 		thePlayer.gameObject.SetActive (false);
 		theDeathScreen.gameObject.SetActive (true);
-
 	}
+
 
 	public void Reset()
 	{
@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour {
 			platformList [i].gameObject.SetActive (false);
 		}
 
-
 		platformGenerator.position = platformStartPoint;
 		platformGeneratorSuasanaKota.position = platformStartPointSuasanaKota;
 		thePlayer.transform.position = playerStartPoint;
@@ -75,6 +74,7 @@ public class GameManager : MonoBehaviour {
 		platformGeneratorKota.position = platformStartPointKota;
 
 		thePlayer.transform.position=playerStartPoint;
+		thePlayer.health = 3;
 
 		thePlayer.gameObject.SetActive (true);
 

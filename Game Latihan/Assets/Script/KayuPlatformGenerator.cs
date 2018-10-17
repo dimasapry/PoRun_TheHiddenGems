@@ -44,7 +44,7 @@ public class KayuPlatformGenerator : MonoBehaviour {
 			if (Random.Range (0f, 100f) < randomAloeEnemyThreshold) 
 			{
 				GameObject newAloeEnemy = aloeEnemyPool.GetPooledObject ();
-				float aloeEnemyXPosition = Random.Range (-platformWidth / 2 +1f, platformWidth / 2-1f);
+				float aloeEnemyXPosition = Random.Range (-platformWidth / 2 +3f, platformWidth / 2-3f);
 				Vector3 aloeEnemyPosition = new Vector3 (aloeEnemyXPosition, 2.4f, 0f);
 				newAloeEnemy.transform.position = transform.position + aloeEnemyPosition;
 				newAloeEnemy.transform.rotation = transform.rotation;
@@ -55,7 +55,7 @@ public class KayuPlatformGenerator : MonoBehaviour {
 			if (Random.Range (0f, 100f) < randomMbakEnemyThreshold) 
 			{
 				GameObject newMbakEnemy = mbakEnemyPool.GetPooledObject ();
-				float mbakEnemyXPosition = Random.Range (-platformWidth / 2+1f, platformWidth / 2-1f);
+				float mbakEnemyXPosition = Random.Range (-platformWidth / 2+3f, platformWidth / 2-3f);
 				Vector3 mbakEnemyPosition = new Vector3 (mbakEnemyXPosition, 8.8f, 0f);
 				newMbakEnemy.transform.position = transform.position + mbakEnemyPosition;
 				newMbakEnemy.transform.rotation = transform.rotation;
