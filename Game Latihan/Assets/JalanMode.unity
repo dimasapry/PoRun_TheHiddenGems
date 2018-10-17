@@ -778,7 +778,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 254892672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -172.74, y: -237.90459, z: -0.44923547}
+  m_LocalPosition: {x: -172.76, y: -237.90459, z: -0.44923547}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2141225871}
@@ -798,11 +798,11 @@ MonoBehaviour:
   thePlatform: {fileID: 1813654918510890, guid: e42aa48a0b3bd43e5948249e7ec04cb9,
     type: 2}
   generationPoint: {fileID: 798529155}
-  distanceBetweenMin: 6
-  distanceBetweenMax: 8
+  distanceBetweenMin: 5
+  distanceBetweenMax: 7
   randomAloeEnemyThreshold: 15
   aloeEnemyPool: {fileID: 291405969}
-  randomMbakEnemyThreshold: 10
+  randomMbakEnemyThreshold: 15
   mbakEnemyPool: {fileID: 8089805}
   theObjectPool: {fileID: 1334495375}
 --- !u!1001 &260048423
@@ -1781,8 +1781,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.79999924, y: -0.79999924}
-  m_SizeDelta: {x: 6.7, y: 0.4}
+  m_AnchoredPosition: {x: -0.79999924, y: 1.5999985}
+  m_SizeDelta: {x: 6.7, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &698087294
 MonoBehaviour:
@@ -5170,18 +5170,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08, y: 0}
+  m_Offset: {x: -1.32, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.15, y: 10}
+    oldSize: {x: 10, y: 9.01}
     newSize: {x: 8.15, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.7, y: 9.91}
+  m_Size: {x: 7.38, y: 8.95}
   m_EdgeRadius: 0
 --- !u!50 &1987857386
 Rigidbody2D:
@@ -5295,7 +5295,7 @@ SpriteRenderer:
   m_SortingLayerID: 1719208579
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d7c1f6c64c33c4759a986db9daebc86b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8bea7ebbdad145cf90337599dae794b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5313,7 +5313,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1987857382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.474243, y: 5.965416, z: 0}
+  m_LocalPosition: {x: 46.44, y: 5.792, z: 0}
   m_LocalScale: {x: 0.2733878, y: 0.2733878, z: 0.2733878}
   m_Children:
   - {fileID: 1238360263}
@@ -5375,7 +5375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4682941475240594, guid: e42aa48a0b3bd43e5948249e7ec04cb9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.4092424
+      value: -3.4092422
       objectReference: {fileID: 0}
     - target: {fileID: 4682941475240594, guid: e42aa48a0b3bd43e5948249e7ec04cb9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5414,7 +5414,7 @@ Prefab:
       value: 0.7518932
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114088786571630044, guid: e42aa48a0b3bd43e5948249e7ec04cb9, type: 2}
+    - {fileID: 114541005450462178, guid: e42aa48a0b3bd43e5948249e7ec04cb9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e42aa48a0b3bd43e5948249e7ec04cb9, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2039379755

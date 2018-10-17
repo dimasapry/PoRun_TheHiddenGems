@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212802943702841950}
   - component: {fileID: 58856005997458066}
   - component: {fileID: 95026197184232860}
+  - component: {fileID: 114695466008273038}
   m_Layer: 0
   m_Name: aloe_2
   m_TagString: enemybox
@@ -74,6 +75,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114695466008273038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799673527649950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e4a00f2bf7d453585073074207f8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformDestructionPoint: {fileID: 0}
 --- !u!212 &212802943702841950
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -69,12 +69,9 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
 		//grounded = Physics2D.IsTouchingLayers (myCollider, whatIsGround);
 		grounded = Physics2D.OverlapCircle(groundCheck.position,groundCheckRadius,whatIsGround);
 //		hit = OnCollisionEnter2D;
-
-
 		for (int i = 0; i < hearts.Length; i++) {
 
 			if (i < health) {
@@ -83,15 +80,12 @@ public class PlayerController : MonoBehaviour {
 				hearts [i].sprite = emptyHeart;
 			}
 
-
-
 			if (i < numOfHearts) {
 				hearts [i].enabled = true;
 			} else {
 				hearts [i].enabled = false;
 			}
 		}
-
 
 		if (transform.position.x > speedMilestoneCount)
 		{
@@ -157,7 +151,7 @@ public class PlayerController : MonoBehaviour {
 	void OnCollisionEnter2D (Collision2D other){
 
 		if (other.gameObject.tag == "killbox") {
-			enemyHit=true;
+			
 			Hit = true;
 			theGameManager.RestartGame ();
 			moveSpeed = moveSpeedStore;
@@ -171,15 +165,15 @@ public class PlayerController : MonoBehaviour {
 
 	if (other.gameObject.tag == "enemybox"){
 		//health --;
-			enemyHit=true;
+
 			Hit = true;
-		health=health-1;
+			health=health-1;
 			//gameObject.animation.Play("Ponpon_die");
 		
 		//GetComponent<Animator>().SetTrigger("Ponpon_die");
 	//	myAnimator.SetTrigger ("Ponpon_die");
 
-		other.gameObject.SetActive (false);
+			other.gameObject.SetActive (false);
 
 
 			if (health <= 0) {
@@ -192,8 +186,15 @@ public class PlayerController : MonoBehaviour {
 	}
 
 
+
+
 }
 
+	void LateUpdate(){
+
+		Hit=false;
+
+	}
 
 	/*public void RunOutOfHealth(){
 		if (health = 0) {
