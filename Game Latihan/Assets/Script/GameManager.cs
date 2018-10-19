@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour {
 
 	private ScoreManager theScoreManager;
 
+	private PowerupManager thePowerupManager;
+
+
 	public GameObject heartObjectCanvas;
 	public GameObject scoreObjectCanvas;
 	public DeathMenu theDeathScreen;
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour {
 		playerStartPoint = thePlayer.transform.position;
 		platformStartPointSuasanaKota = platformGeneratorSuasanaKota.position;
 		theScoreManager = FindObjectOfType <ScoreManager> ();
+		thePowerupManager = FindObjectOfType <PowerupManager> ();
 	}
 
 	public void RestartGame (){
@@ -55,12 +59,13 @@ public class GameManager : MonoBehaviour {
 		theDeathScreen.gameObject.SetActive (true);
 		heartObjectCanvas.gameObject.SetActive (false);
 		scoreObjectCanvas.gameObject.SetActive (false);
+
 	}
 
 
 	public void Reset()
 	{
-
+		thePowerupManager.powerupLengthCounter = 0;
 		pauseButton.SetActive (true);
 		heartObjectCanvas.gameObject.SetActive (true);
 		scoreObjectCanvas.gameObject.SetActive (true);

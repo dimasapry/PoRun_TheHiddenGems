@@ -31,13 +31,13 @@ public class DeathMenu : MonoBehaviour {
 
 	void Update () {
 		
-		if (theScoreManager.scoreCount < 300) {
+		if (theScoreManager.scoreCount < 500) {
 			imageResult.sprite = foreignTourist;
 			predicateText.text = "FOREIGN TOURIST";
-		} else if ( 300 <= theScoreManager.scoreCount && theScoreManager.scoreCount < 800) {
+		} else if ( 500 <= theScoreManager.scoreCount && theScoreManager.scoreCount < 1000) {
 			imageResult.sprite = domesticTourist;
 			predicateText.text = "DOMESTIC TOURIST";
-		} else if (theScoreManager.scoreCount >=800){
+		} else if (theScoreManager.scoreCount >=1000){
 			imageResult.sprite = localPeople;
 			predicateText.text = "LOCAL PEOPLE";}
 

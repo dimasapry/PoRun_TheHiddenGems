@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour {
 
 	public int health;
 	public int numOfHearts;
+	public int maxHealth;
 
 	public Image[] hearts;
 	public Sprite fullHeart;
@@ -46,6 +47,8 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D myRigidBody;
 
 	public bool hit;
+
+	private PowerupManager thePowerupManager;
 
 
 
@@ -64,6 +67,8 @@ public class PlayerController : MonoBehaviour {
 		stopJumping = true;
 		myAnimator = GetComponent<Animator> ();
 		Hit = false;
+		health= Mathf.Clamp(health,0, maxHealth);
+		thePowerupManager = FindObjectOfType<PowerupManager> ();
 	}
 
 
@@ -138,6 +143,7 @@ public class PlayerController : MonoBehaviour {
 		myAnimator.SetFloat ("Speed", myRigidBody.velocity.x);
 		myAnimator.SetBool ("Grounded", grounded);
 		myAnimator.SetBool ("Hit", Hit);
+		myAnimator.SetBool ("Powerup", thePowerupManager.powerupActive);
 		//myAnimator.SetBool ("Hit", OnCollisionEnter2D);
 
 		//if (EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject == null) return;

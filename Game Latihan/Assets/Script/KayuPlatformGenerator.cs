@@ -20,6 +20,11 @@ public class KayuPlatformGenerator : MonoBehaviour {
 
 	public ObjectPooler theObjectPool;
 
+	public float powerupHeight;
+	public ObjectPooler powerupPool;
+	public float randomPowerupThreshold;
+
+
 	// Use this for initialization
 	void Start () {
 		platformWidth = thePlatform.GetComponent<BoxCollider2D>().size.x;
@@ -29,6 +34,16 @@ public class KayuPlatformGenerator : MonoBehaviour {
 	void Update () {
 		if (transform.position.x < generationPoint.position.x) {
 			distanceBetween = Random.Range (distanceBetweenMin, distanceBetweenMax);
+
+			if (Random.Range (0f, 100f) < randomPowerupThreshold) 
+			
+			{
+				GameObject newPowerup = powerupPool.GetPooledObject ();
+				newPowerup.transform.position = transform.position + new Vector3 (distanceBetween / 2, powerupHeight, 0f);
+
+				newPowerup.SetActive (true);
+			}
+
 
 			transform.position = new Vector3 (transform.position.x + (platformWidth / 2) + distanceBetween, transform.position.y, transform.position.z);
 

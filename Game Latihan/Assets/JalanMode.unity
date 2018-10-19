@@ -713,7 +713,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5, y: -29.8}
+  m_AnchoredPosition: {x: -0.39999455, y: -29.8}
   m_SizeDelta: {x: 96.07, y: 26.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &221734340
@@ -848,9 +848,12 @@ MonoBehaviour:
   distanceBetweenMax: 7
   randomAloeEnemyThreshold: 15
   aloeEnemyPool: {fileID: 291405969}
-  randomMbakEnemyThreshold: 15
+  randomMbakEnemyThreshold: 10
   mbakEnemyPool: {fileID: 8089805}
   theObjectPool: {fileID: 1334495375}
+  powerupHeight: 8
+  powerupPool: {fileID: 465255822}
+  randomPowerupThreshold: 5
 --- !u!1001 &260048423
 Prefab:
   m_ObjectHideFlags: 0
@@ -1397,6 +1400,49 @@ Transform:
   m_PrefabParentObject: {fileID: 4962705113658484, guid: ff708bea1f19742eabb3014417bfb7bd,
     type: 2}
   m_PrefabInternal: {fileID: 184482699}
+--- !u!1 &465255820
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 465255821}
+  - component: {fileID: 465255822}
+  m_Layer: 0
+  m_Name: PoolerPowerup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &465255821
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 465255820}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.0930862, y: -0.40823936, z: -6.2767625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1864019440}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &465255822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 465255820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec1ae768fd6944ffaa1a0b7da2647d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 1307746722345988, guid: 6aedf140a60f6424ea9fcfa944a44c27,
+    type: 2}
+  pooledAmount: 2
 --- !u!1 &491468008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,6 +2451,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &973101888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 973101890}
+  - component: {fileID: 973101889}
+  m_Layer: 0
+  m_Name: Powerup Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &973101889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 973101888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e695ca3215bd0424eb4215adacdc2da8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupActive: 0
+  powerupLengthCounter: 0
+--- !u!4 &973101890
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 973101888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44.371147, y: 8.5971775, z: -6.2767625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &988026952
 Prefab:
@@ -3480,6 +3568,48 @@ Transform:
   m_PrefabParentObject: {fileID: 4252133292479836, guid: 0e885d98e8b2a49319b6a54b86ebdd4a,
     type: 2}
   m_PrefabInternal: {fileID: 204590374}
+--- !u!1001 &1319334818
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4135162364688570, guid: 6aedf140a60f6424ea9fcfa944a44c27, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 26.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135162364688570, guid: 6aedf140a60f6424ea9fcfa944a44c27, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 12.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135162364688570, guid: 6aedf140a60f6424ea9fcfa944a44c27, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135162364688570, guid: 6aedf140a60f6424ea9fcfa944a44c27, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135162364688570, guid: 6aedf140a60f6424ea9fcfa944a44c27, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135162364688570, guid: 6aedf140a60f6424ea9fcfa944a44c27, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135162364688570, guid: 6aedf140a60f6424ea9fcfa944a44c27, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135162364688570, guid: 6aedf140a60f6424ea9fcfa944a44c27, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6aedf140a60f6424ea9fcfa944a44c27, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1326468096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3550,7 +3680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5000036, y: -20.1}
+  m_AnchoredPosition: {x: -0.4, y: -20.1}
   m_SizeDelta: {x: 96.07, y: 26.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1332330093
@@ -4861,6 +4991,7 @@ Transform:
   - {fileID: 80269909}
   - {fileID: 1696808290}
   - {fileID: 1915432592}
+  - {fileID: 465255821}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5424,6 +5555,7 @@ MonoBehaviour:
   jumpTimeCounter: 0
   health: 3
   numOfHearts: 3
+  maxHealth: 3
   hearts:
   - {fileID: 1422662657}
   - {fileID: 674621359}
